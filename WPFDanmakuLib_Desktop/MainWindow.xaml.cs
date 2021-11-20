@@ -10,7 +10,7 @@ namespace WPFDanmakuLib_Desktop
     public partial class MainWindow : Window
     {
         WPFDanmakuEngine Engine;
-        BaseDanmaku bd;
+        DanmakuStyle bd;
 
         Random ra;
 
@@ -18,16 +18,19 @@ namespace WPFDanmakuLib_Desktop
         {
             InitializeComponent();
             ra = new Random();
-            bd = new BaseDanmaku();
+            bd = new DanmakuStyle();
         }
 
         private void DanmakuRender_Loaded(object sender, RoutedEventArgs e)
         {
             // Bind Canvas to WPFDanmakuLib, and set default danmaku style
-            Engine = new WPFDanmakuEngine(DanmakuRender, new BaseDanmaku(), WPFDanmakuEngine.DrawMode.Compatibility);
+            Engine = new WPFDanmakuEngine(
+                new EngineBehavior(DrawMode.WPF, CollisionPrevention.Enabled),
+                bd, 
+                DanmakuRender);
             
             // Draw a R2L danmaku with default style
-            Engine.DrawDanmaku_R2L("Red Area is Canvas.");
+            Engine.DrawDanmaku("Red Area is Canvas.");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -36,7 +39,7 @@ namespace WPFDanmakuLib_Desktop
             bd.PositionX = ra.Next(0, 300);
 
             // override default danmaku style
-            Engine.DrawDanmaku_R2L(Utils.GetRandomString(10), bd);
+            Engine.DrawDanmaku(Utils.GetRandomString(10), bd);
         }
     }
 }

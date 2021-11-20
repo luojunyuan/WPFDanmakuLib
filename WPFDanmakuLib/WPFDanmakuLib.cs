@@ -44,7 +44,8 @@ namespace WPFDanmakuLib {
                     this.DefaultDanmakuStyle.FontSize,
                     Brushes.Black,
                     new NumberSubstitution(),
-                    TextFormattingMode.Display);
+                    TextFormattingMode.Display,
+                    1);
                 this.mSlotManager = new SlotManager(this.mBindingCanvas.ActualHeight, formattedText.Height);
             }
         }
