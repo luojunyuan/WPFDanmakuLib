@@ -81,6 +81,13 @@ namespace WPFDanmakuLib {
         private Geometry textGeometry;
         private bool enableOutline;
 
+        public OutlinedTextBlock()
+        {
+            this.enableOutline = true;
+            refresh_cache_render_pen();
+            TextDecorations = new TextDecorationCollection();
+        }
+
         public OutlinedTextBlock(bool enableOutline = false) {
             this.enableOutline = enableOutline;
             this.TextDecorations = new TextDecorationCollection();
