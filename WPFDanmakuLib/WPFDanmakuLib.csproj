@@ -11,7 +11,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <RepositoryType>Extention</RepositoryType>
     <PackageTags>danmaku, danmu, bullet curtain</PackageTags>
-    <Version>0.0.0.1</Version>
+    <Version>0.0.0.2</Version>
     <PackageId>luojunyuan.WpfDanmaku</PackageId>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
